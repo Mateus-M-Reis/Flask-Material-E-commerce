@@ -4,6 +4,9 @@ from werkzeug.utils import secure_filename
 from instamojo_wrapper import Instamojo
 import requests
 
+# Grabs the folder where the script runs.
+#basedir = os.path.abspath(os.path.dirname(__file__))
+
 app = Flask(__name__)
 app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
