@@ -1,79 +1,111 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Welcome</title>
-<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
-<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
-</head>
-<body>
-<div id="title">
-	<form>
-		<input id="searchBox" type="text" name="searchQuery">
-		<input id="searchButton" type="submit" value="Search">
-	</form>
+<!-- <!DOCTYPE HTML> -->
+{% extends "base.html" %}
 
-	{% if not loggedIn %}
-	<div id="signInButton">
-		<a class="link" href="/loginForm">Sign In</a>
-	</div>
-	{% else %}
-	<div class="dropdown">
-		<button class="dropbtn">Hello, <br>{{firstName}}</button>
-		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<a href="/account/profile">Your profile</a>
-			<hr>
-			<a href="/logout">Sign Out</a>
-		</div>
-	</div>
-	{% endif %}
-	<div id="kart">
-		<a class="link" href="/cart">
-			<img src={{url_for('static', filename='img/shoppingCart.png')}} id="cartIcon" />
-			CART {{noOfItems}}
-		</a>
-	</div>
-</div>
-<div class="display">
-	<div class="displayCategory">
-		<h2>Shop by Category: </h2>
-		<ul>
-			{% for row in categoryData %}
-			<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div>
-		<h2>Items</h2>
-		{% for data in itemData %}
-		<table>
-			<tr id="productName">
-				{% for row in data %}
-				<td>
-					{{row[1]}}
-				</td>
-				{% endfor %}
-			</tr>
-			<tr id="productImage">
-				{% for row in data %}
-				<td>
-					<a href="/productDescription?productId={{row[0]}}">
-						<img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
-					</a>
-				</td>
-				{% endfor %}
-			</tr>
-			<tr id="productPrice">
-				{% for row in data %}
-				<td>
-					rs {{row[2]}}
-				</td>
-				{% endfor %}
-			</tr>
-		</table>
-		{% endfor %}
-	</div>
-</div>
-</body>
+{% block title %} Dashboard {% endblock %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<html>
+  <head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/material-kit.css') }} />
+    <link rel="stylesheet" href={{ url_for('static', filename='demo/demo.css') }} />
+    <!--<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+      <link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} /> -->
+  </head>
+  <body>
+    <div id="title">
+      <form>
+        <input id="searchBox" type="text" name="searchQuery">
+        <input id="searchButton" type="submit" value="Search">
+      </form>
+
+      {% if not loggedIn %}
+      <div id="signInButton">
+        <a class="link" href="/loginForm">Sign In</a>
+      </div>
+      {% else %}
+      <div class="dropdown">
+        <button class="dropbtn">Hello, <br>{{firstName}}</button>
+        <div class="dropdown-content">
+          <a href="/account/orders">Your orders</a>
+          <a href="/account/profile">Your profile</a>
+          <hr>
+          <a href="/logout">Sign Out</a>
+        </div>
+      </div>
+      {% endif %}
+      <div id="kart">
+        <a class="link" href="/cart">
+          <img src={{url_for('static', filename='img/shoppingCart.png')}} id="cartIcon" />
+          CART {{noOfItems}}
+        </a>
+      </div>
+    </div>
+    <div class="display">
+      <div class="displayCategory">
+        <h2>Shop by Category: </h2>
+        <ul>
+          {% for row in categoryData %}
+          <li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class='row'>
+      <h2>Items</h2>
+      {% for data in itemData %}
+        <table>
+          <tr id="productName">
+            {% for row in data %}
+            <div class='col-lg-12'>
+              <td>
+                <div class='col-lg-12'>
+                  <div class='card card-stats'>
+                    <div class='card-header card-header-rose card-header-icon'>
+                      <div class='card-icon'>
+                        <i class='material-icons'>language</i>
+                      </div>
+                      <p class='card-category'>
+                        {{row[1]}}
+                      </p>
+                      <h3 class='card-title'>49
+                        <small>R$</small>
+                      </h3>
+                    </div>
+                    <div class='card-body'>
+                      <a href="/productDescription?productId={{row[0]}}">
+                        <img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" class='card-img'/>
+                      </a>
+                    </div>
+                    <div class='card-footer'>
+                      rs {{row[2]}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </div>
+            {% endfor %}
+          </tr>
+        </table>
+      {% endfor %}
+    </div>
+  </body>
 </html>
 
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

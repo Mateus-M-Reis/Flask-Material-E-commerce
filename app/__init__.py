@@ -13,7 +13,7 @@ import os
 
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
-print('basedir: ', basedir)
+print('\nbasedir: ', basedir, '\n')
 
 #app = Flask(__name__)
 
