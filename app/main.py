@@ -5,7 +5,8 @@ from instamojo_wrapper import Instamojo
 import requests
 
 # Grabs the folder where the script runs.
-#basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__))
+print('basedir: ', basedir)
 
 app = Flask(__name__)
 app.secret_key = 'random string'
@@ -17,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route("/")
 def root():
     loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
+    with sqlite3.connect('app/database.db') as conn:
         cur = conn.cursor()
         cur.execute('SELECT productId, name, price, description, image, stock FROM products')
         itemData = cur.fetchall()

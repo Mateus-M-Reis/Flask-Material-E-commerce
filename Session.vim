@@ -7,16 +7,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 README.md
-badd +0 run.py
+badd +2 run.py
+badd +30 README.md
 badd +6 run1.py
 badd +1 app/main.py
 badd +1 app/database.py
-badd +24 app/__init__.py
+badd +1 app/__init__.py
 badd +1 app/static/css/cart.css
 badd +1 app/static/css/home.css
-badd +0 app/static/css/productDescription.css
-badd +97 app/static/css/topStyle.css
+badd +1 app/static/css/productDescription.css
+badd +1 app/static/css/topStyle.css
 badd +1 app/templates/cart.html
 badd +1 app/templates/changePassword.html
 badd +1 app/templates/checkout.html
@@ -27,7 +27,7 @@ badd +1 app/templates/instamojo.html
 badd +1 app/templates/login.html
 badd +1 app/templates/productDescription.html
 badd +1 app/templates/profileHome.html
-badd +0 app/templates/register.html
+badd +1 app/templates/register.html
 argglobal
 %argdel
 $argadd README.md
@@ -35,10 +35,7 @@ edit README.md
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
-wincmd _ | wincmd |
-vsplit
-2wincmd h
-wincmd w
+1wincmd h
 wincmd w
 wincmd _ | wincmd |
 split
@@ -51,24 +48,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 104 + 136) / 273)
-exe '3resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 3resize ' . ((&columns * 136 + 136) / 273)
-exe '4resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 4resize ' . ((&columns * 136 + 136) / 273)
-argglobal
-enew
-file NERD_tree_1
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=99
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe '2resize ' . ((&lines * 31 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe '3resize ' . ((&lines * 30 + 32) / 65)
+exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -78,11 +62,11 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 3 - ((2 * winheight(0) + 31) / 62)
+let s:l = 30 - ((29 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
+30
 normal! 0
 wincmd w
 argglobal
@@ -100,7 +84,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 2
-normal! 0
+normal! 02|
 wincmd w
 argglobal
 if bufexists("run1.py") | buffer run1.py | else | edit run1.py | endif
@@ -120,12 +104,11 @@ normal! zt
 normal! 0
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 104 + 136) / 273)
-exe '3resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 3resize ' . ((&columns * 136 + 136) / 273)
-exe '4resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 4resize ' . ((&columns * 136 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe '2resize ' . ((&lines * 31 + 32) / 65)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+exe '3resize ' . ((&lines * 30 + 32) / 65)
+exe 'vert 3resize ' . ((&columns * 136 + 137) / 274)
 tabedit app/__init__.py
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -142,9 +125,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 90 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -159,7 +142,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 24
-normal! 05|
+normal! 06|
 wincmd w
 argglobal
 if bufexists("app/database.py") | buffer app/database.py | else | edit app/database.py | endif
@@ -195,9 +178,9 @@ normal! zt
 18
 normal! 03|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 90 + 137) / 274)
 tabedit app/static/css/topStyle.css
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -218,12 +201,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
 exe '2resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
 exe '3resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 3resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 90 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -291,12 +274,12 @@ normal! zt
 3
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
 exe '2resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
 exe '3resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 3resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 90 + 137) / 274)
 tabedit app/templates/displayCategory.html
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -316,10 +299,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 68 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 67 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 68 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 67 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 68 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 67 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 69 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 67 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -334,7 +317,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 02|
 wincmd w
 argglobal
 if bufexists("app/templates/checkout.html") | buffer app/templates/checkout.html | else | edit app/templates/checkout.html | endif
@@ -387,10 +370,10 @@ normal! zt
 1
 normal! 04|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 68 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 67 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 68 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 67 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 68 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 67 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 69 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 67 + 137) / 274)
 tabedit app/templates/login.html
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -412,11 +395,11 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe '1resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
 exe '2resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 90 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -431,7 +414,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 04|
+normal! 05|
 wincmd w
 argglobal
 if bufexists("app/templates/instamojo.html") | buffer app/templates/instamojo.html | else | edit app/templates/instamojo.html | endif
@@ -485,11 +468,11 @@ normal! zt
 normal! 02|
 wincmd w
 exe '1resize ' . ((&lines * 31 + 32) / 65)
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
 exe '2resize ' . ((&lines * 30 + 32) / 65)
-exe 'vert 2resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 4resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 4resize ' . ((&columns * 90 + 137) / 274)
 tabedit app/templates/register.html
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -506,9 +489,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 90 + 137) / 274)
 argglobal
 setlocal fdm=indent
 setlocal fde=0
@@ -523,7 +506,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 03|
+normal! 04|
 wincmd w
 argglobal
 if bufexists("app/templates/profileHome.html") | buffer app/templates/profileHome.html | else | edit app/templates/profileHome.html | endif
@@ -559,9 +542,9 @@ normal! zt
 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 91 + 136) / 273)
-exe 'vert 2resize ' . ((&columns * 90 + 136) / 273)
-exe 'vert 3resize ' . ((&columns * 90 + 136) / 273)
+exe 'vert 1resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 91 + 137) / 274)
+exe 'vert 3resize ' . ((&columns * 90 + 137) / 274)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

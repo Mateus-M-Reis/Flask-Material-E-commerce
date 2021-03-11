@@ -4,7 +4,7 @@ License: MIT
 Copyright (c) 2019 - present AppSeed.us
 """
 
-#import os
+import os
 
 #from flask            import Flask
 #from flask_sqlalchemy import SQLAlchemy
@@ -12,7 +12,8 @@ Copyright (c) 2019 - present AppSeed.us
 #from flask_bcrypt     import Bcrypt
 
 # Grabs the folder where the script runs.
-#basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__))
+print('basedir: ', basedir)
 
 #app = Flask(__name__)
 
