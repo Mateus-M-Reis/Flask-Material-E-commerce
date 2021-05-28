@@ -2,7 +2,7 @@
 
 ## Quick start
 
-> UNZIP the sources or clone the private repository. After getting the code, open a terminal and navigate to the working directory, with product source code.
+> UNZIP the sources or clone the private repository. After getting the code, open a terminal and navigate to the working directory.
 
 ```bash
 $ # Get the code
@@ -40,5 +40,3 @@ $ flask run --host=0.0.0.0 --port=5000
 $
 $ # Access the dashboard in browser: http://127.0.0.1:5000/
 ```
-
-

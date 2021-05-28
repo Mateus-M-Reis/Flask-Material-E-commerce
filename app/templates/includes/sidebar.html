@@ -1,66 +1,77 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/img/sidebar-1.jpg">
-      <div class="logo raw">
-        <i class="material-icons">youtube_searched_for</i>
-        <h2> Item searched here </h2>
+      <div class="logo raw tim-typo">
+        <h3> Item searched here </h3>
+        <small>
+          Number of results returned from search
+        </small>
       </div>
       <div class="sidebar-wrapper">
-        
         <ul class="nav">
-
-          <li>
-            <a class='nav-link'>
-              <h4>Refine your search</h4>
-            </a>
+          <li class='nav-item'>
+            <div class='nav-tabs'>
+              <i class='material-icons'>manage_search</i>
+              <p>Refine your search</p>
+            </div>
+            <div class='nav-item' id='categories'>
+              <ul>
+                {% for row in categoryData %}
+                  <li class='nav-item tim-typo'>
+                    <a class='tim-note' href="/displayCategory?categoryId={{row[0]}}">
+                      {{row[1]}}
+                    </a> 
+                  </li>
+                {% endfor %}
+              <ul>
+            </div>
           </li>
-          <li>
-            <a class='nav-link' type='button' data-toggle='collapse' href='#categories' aria-controls='categories' aria-expanded='true'>
+          <br>
+          <li class='nav-item'>
+            <div class='nav-tabs' href='/'>
               <i class="material-icons">store</i>
               <p>Official Stores</p>
-              <div class='collapse' id='categories'>
-                <ul>
-                  {% for row in categoryData %}
-                    <li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
-                  {% endfor %}
-                <ul>
-              </div>
             </a>
           </li>
+          <br>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-tables.html">
+            <div class="nav-tabs" href="/">
               <i class="material-icons">price_check</i>
               <p>Freight Cost</p>
-            </a>
+            </dib>
           </li>
+          <br>
           <li>
-            <a class="nav-link">
+            <div class="nav-tabs">
               <i class="material-icons">local_shipping</i>
               <p>Shipping Type</p>
-            </a>
+            </div>
           </li>
+          <br>
           <li class="nav-item {% if 'ui-icons' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-icons.html">
-              <i class="material-icons">credit_score</i>
-              <p>Payment</p>
-            </a>
+            <div class="nav-tabs">
+	      <i class="material-icons">credit_score</i>
+	      <p>Payment</p>
+            </div>
           </li>
+          <br>
           <li class="nav-item {% if 'ui-maps' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-maps.html">
+            <div class="nav-tabs">
               <i class="material-icons">production_quantity_limits</i>
               <p>Condition</p>
-            </a>
+	    </div>
           </li>
+          <br>
           <li class="nav-item {% if 'ui-notifications' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-notifications.html">
+            <div class="nav-tabs">
               <i class="material-icons">location_city</i>
               <p>Location</p>
-            </a>
+	    </div>
           </li>
-          
+          <br>
           <li class="nav-item ">
-            <a class="nav-link" href="/page-rtl-support.html">
+            <div class="nav-tabs">
               <i class="material-icons">price_change</i>
               <p>Price</p>
-            </a>
+	    </div>
           </li>
 
         </ul>

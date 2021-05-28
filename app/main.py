@@ -1,7 +1,7 @@
 from flask import *
 import sqlite3, hashlib, os
 from werkzeug.utils import secure_filename
-from instamojo_wrapper import Instamojo
+#from instamojo_wrapper import Instamojo
 import requests
 
 # Grabs the folder where the script runs.
