@@ -1,33 +1,172 @@
 <html>
-<head>
-<title>Sign up</title>
-<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}">
-</script>
-</head>
-<body>
-<form action="/register" method="POST" onsubmit="return validate()">
-    <p>Email: <input type="email" name="email"></p>
 
-    <P>Password: <input type="password" name="password" id="password" required></p>
+  <head>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}">
+    </script>
+    <meta charset="utf-8" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <p>Confirm Password: <input type="password" name="cpassword" id="cpassword"></p>
+    <title>
+	Sign In
+    </title>
 
-    <p>First Name: <input type="text" name="firstName"></p>
-    <p>Last Name: <input type="text" name="lastName"></p>
-    <p>Address Line 1: <input type="text" name="address1"></p>
-    <p>Address Line 2: <input type="text" name="address2"></p>
-    <p>Zipcode: <input type="text" name="zipcode"></p>
-    <p>City: <input type="text" name="city"></p>
-    <p>State: <input type="text" name="state"></p>
-    <p>Country: <input type="text" name="country"></p>
-    <p>Phone Number: <input type="text" name="phone"></p>
+    <script type="text/javascript" src="http://livejs.com/live.js"></script>
+    <script src="static/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+    <!-- <script src="static/js/core/jquery.min.js" type="text/javascript"></script> -->
+    <!-- <script src="static/js/core/popper.min.js" type="text/javascript"></script> -->
+    <!-- <script src="static/js/plugins/perfect-scrollbar.jquery.min.js"></script> -->
+    <!-- <script src="static/js/plugins/chartist.min.js"></script> -->
+    <!-- <script src="static/js/plugins/bootstrap-notify.js"></script> -->
 
-    <p><input type="submit" value="Register"></p>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <a href="/loginForm">Login here</a>
-</form>
-</body>
+    <!-- CSS Files -->
+    <link href="/static/css/material-dashboard.css?v=2.0.6" rel="stylesheet" />
+
+    <!-- Specific Page CSS goes HERE  -->
+    {% block stylesheets %}{% endblock stylesheets %}
+  </head>
+
+  <body>
+    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+
+      <div class="card card-login">
+	<form class="form" method="post" action="">
+	
+	  <div class="card-header card-header-primary text-center">
+
+	    <h4 class="card-title">Register</h4>
+	    <div class="social-line">
+	      <a href="#pablo" class="btn btn-just-icon btn-link">
+		<i class="fa fa-facebook-square"></i>
+	      </a>
+	      <a href="#pablo" class="btn btn-just-icon btn-link">
+		<i class="fa fa-twitter"></i>
+	      </a>
+	      <a href="#pablo" class="btn btn-just-icon btn-link">
+		<i class="fa fa-google-plus"></i>
+	      </a>
+	    </div>
+	  </div>
+
+	  <p class="description text-center">
+	    
+	    {% if msg %}
+	      <span class="text-danger">{{ msg | safe }}</span>
+	    {% else %}
+	      Add your credentials 
+	      <br />
+	      OR <a href={{ url_for('login') }} >authenticate</a> with an existing account.
+	    {% endif %} 
+
+	  </p>
+	  <div class="card-body">
+	    
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">face</i>
+		</span>
+	      </div>
+	      <input type="text" name="firstName" placeholder='First Name'>
+	      <input type="text" name="lastName" placeholder='Last Name'>
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">mail</i>
+		</span>
+	      </div>
+	      <input type="email" name="email" placeholder='e-mail'>>
+	    </div>
+	    
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">lock_outline</i>
+		</span>
+	      </div>
+	      <input type="password" name="password" id="password" required placeholder="Password">
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">lock_outline</i>
+		</span>
+	      </div>
+	      <input type="password" name="password" id="password" required placeholder="Confirm Password">
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">home</i>
+		</span>
+	      </div>
+	      <input type="text" name="address1" id="address1" required placeholder="Address">
+	      <input type="text" name="address2" id="address2" required required="Address Line Two">
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">markunread_mailbox</i>
+		</span>
+	      </div>
+	      <input type="zipcode" name="zipcode" id="zipcode" required placeholder="zip code">
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">map</i>
+		</span>
+	      </div>
+	      <input type="country" name="country" id="country" required placeholder='Country'>
+	    </div>
+
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">location_city</i>
+		</span>
+	      </div>
+	      <input type="text" name="address1" id="address1" required placeholder='State'>
+	      <input type="text" name="address2" id="address2" required placeholder='City'>
+	    </div>
+
+	    <div class="input-group">
+	      <div class="input-group-prepend">
+		<span class="input-group-text">
+		  <i class="material-icons">phone</i>
+		</span>
+	      </div>
+	      <input type="phone" name="phone" id="phone" required placeholder='Phone Number'>
+	    </div>
+
+	  </div>
+
+	  <div class="footer text-center">
+	    <button type="submit" name="register" class="btn btn-primary btn-link btn-wd btn-lg" href='/loginForm'>Register</button>
+	  </div>
+
+	</form>
+      </div>
+
+      <div class="footer text-center">
+	<span>Already a member? <a href='loginForm'>Login</a> </span>
+      </div>
+
+    </div>
+  </body>
+
 </html>
-
-
-

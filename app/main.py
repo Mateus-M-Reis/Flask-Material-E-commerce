@@ -26,7 +26,14 @@ def root():
         cur.execute('SELECT categoryId, name FROM categories')
         categoryData = cur.fetchall()
     itemData = parse(itemData)   
-    return render_template('base.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+    return render_template(
+			'base.html', 
+			itemData=itemData, 
+		 	loggedIn=loggedIn, 
+			firstName=firstName, 
+			noOfItems=noOfItems, 
+			categoryData=categoryData
+			)
 
 #Fetch user details if logged in
 def getLoginDetails():
@@ -332,7 +339,7 @@ def register():
         con.close()
         return render_template("login.html", error=msg)
 
-@app.route("/registerationForm")
+@app.route("/registrationForm")
 def registrationForm():
     return render_template("register.html")
 
